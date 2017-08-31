@@ -13,7 +13,7 @@ ENV GOLANG_ARCH_amd64=amd64 GOLANG_ARCH_arm=armv6l GOLANG_ARCH_ppc64le=ppc64le \
     GOLANG_ARCH=GOLANG_ARCH_${ARCH} GOPATH=/go \
     PATH=/go/bin:/usr/local/go/bin:${PATH} SHELL=/bin/bash
 
-RUN curl -sfL https://cocl.us/docker-${DOCKER_VERSION}-${ARCH}.tgz | \
+RUN curl -sfL https://cocl.us/docker-1.10.3-${ARCH}.tgz | \
       tar -xzf - -C /usr/bin --transform='s/.*\///'
 
 RUN curl -fsSL https://storage.googleapis.com/golang/go1.7.4.linux-${!GOLANG_ARCH}.tar.gz | \
