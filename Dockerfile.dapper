@@ -16,7 +16,7 @@ ENV GOLANG_ARCH_amd64=amd64 GOLANG_ARCH_arm=armv6l GOLANG_ARCH_ppc64le=ppc64le \
 RUN curl -sfL https://cocl.us/docker-1.10.3-${ARCH}.tgz | \
       tar -xzf - -C /usr/bin --transform='s/.*\///'
 
-RUN curl -fsSL https://storage.googleapis.com/golang/go1.7.4.linux-${!GOLANG_ARCH}.tar.gz | \
+RUN curl -fsSL https://storage.googleapis.com/golang/go1.7.6.linux-${!GOLANG_ARCH}.tar.gz | \
       tar -xzf - -C /usr/local && \
     go get github.com/rancher/trash && go get github.com/golang/lint/golint
 
