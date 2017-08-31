@@ -9,4 +9,4 @@ if [ -f ./build/bootstrap.envs ];then
     . ./build/bootstrap.envs
 fi
 
-go build -ldflags "-linkmode external -extldflags -static -s" -o bin/host-api-${ARCH}
+go build -ldflags "-linkmode external -extldflags -static -s" -o bin/host-api
