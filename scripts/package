@@ -19,6 +19,10 @@ cd build
 
 sha1sum -b $(find ${CONTENT} -type f) > ${CONTENT}/SHA1SUMS
 sha1sum ${CONTENT}/SHA1SUMS > ${CONTENT}/SHA1SUMSSUM
+sha256sum -b $(find ${CONTENT} -type f) > ${CONTENT}/SHA256SUMS
+sha256sum ${CONTENT}/SHA256SUMS > ${CONTENT}/SHA256SUMSSUM
 
-tar czf ../dist/artifacts/host-api${SUFFIX}.tar.gz ${CONTENT}
-echo Created dist/artifacts/host-api${SUFFIX}.tar.gz
+ARTIFACT_PATH="../dist/artifacts/host-api-${ARCH}.tar.gz"
+
+tar czf ${ARTIFACT_PATH} ${CONTENT}
+echo Created ${ARTIFACT_PATH}

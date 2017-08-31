@@ -13,6 +13,9 @@ if [[ ! -e /host/proc/ ]]; then
     ln -s /proc /host/proc
 fi
 
+docker pull zambon/busybox-multi:1
+docker tag zambon/busybox-multi:1 busybox:1
+
 docker run -i -d busybox:1
 
 go test -timeout 30s -v ./...

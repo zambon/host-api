@@ -1,10 +1,12 @@
 #!/bin/bash
 set -e -x
 
+ARCH=${ARCH:?"ARCH not set"}
+
 cd $(dirname $0)/..
 
 if [ -f ./build/bootstrap.envs ];then
     . ./build/bootstrap.envs
 fi
 
-go build -ldflags "-linkmode external -extldflags -static -s" -o bin/host-api
+go build -ldflags "-linkmode external -extldflags -static -s" -o bin/host-api-${ARCH}
