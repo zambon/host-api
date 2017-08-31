@@ -37,7 +37,7 @@ func TestContainerStats(t *testing.T) {
 	}
 	ctrs := []client.APIContainers{}
 	for _, ctr := range allCtrs {
-		if strings.HasPrefix(ctr.Image, "busybox:1") {
+		if strings.HasPrefix(ctr.Image, "zambin/busybox-multi:1") {
 			ctrs = append(ctrs, ctr)
 		}
 	}

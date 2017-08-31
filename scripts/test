@@ -13,20 +13,7 @@ if [[ ! -e /host/proc/ ]]; then
     ln -s /proc /host/proc
 fi
 
-docker pull zambon/hello-world-multi:latest
-docker tag zambon/hello-world-multi:latest ibuildthecloud/helloworld:latest
-docker tag zambon/hello-world-multi:latest hello-world:latest
-
-docker pull zambon/true-multi:latest
-docker tag zambon/true-multi:latest tianon/true:latest
-
-docker pull zambon/busybox-multi:latest
-docker tag zambon/busybox-multi:latest busybox:latest
-
-docker pull zambon/busybox-multi:1
-docker tag zambon/busybox-multi:1 busybox:1
-
-docker run -i -d busybox:1
+docker run -i -d zambon/busybox-multi:1
 
 go test -timeout 30s -v ./...
 

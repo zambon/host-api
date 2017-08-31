@@ -12,7 +12,7 @@ func useEnvVars() bool {
 }
 
 func createContainer(client *docker.Client) (*docker.Container, error) {
-	opts := docker.CreateContainerOptions{Config: &docker.Config{Image: "tianon/true"}}
+	opts := docker.CreateContainerOptions{Config: &docker.Config{Image: "zambon/true-multi"}}
 	return client.CreateContainer(opts)
 }
 
@@ -49,7 +49,7 @@ func createTestContainerInternal(client *docker.Client, ip string, useLabel bool
 	}
 
 	config := &docker.Config{
-		Image:     "busybox:latest",
+		Image:     "zambon/busybox-multi:latest",
 		Labels:    labels,
 		Env:       env,
 		OpenStdin: true,
@@ -79,10 +79,10 @@ func pullTestImages(client *docker.Client) {
 		}
 	}
 
-	imageName := "tianon/true:latest"
+	imageName := "zambon/true-multi:latest"
 	pullImage(imageName)
 
-	imageName = "busybox:latest"
+	imageName = "zambon/busybox-multi:latest"
 	pullImage(imageName)
 }
 

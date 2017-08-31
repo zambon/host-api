@@ -53,7 +53,7 @@ func (s *ProxyTestSuite) TestStartAndConnect(c *check.C) {
 	defer ws.Close()
 
 	createConfig := &docker.Config{
-		Image:     "ibuildthecloud/helloworld:latest",
+		Image:     "zambon/hello-world-multi:latest",
 		Tty:       true,
 		OpenStdin: true,
 	}
@@ -70,7 +70,7 @@ func (s *ProxyTestSuite) TestInteractive(c *check.C) {
 	defer ws.Close()
 
 	createConfig := &docker.Config{
-		Image:     "ibuildthecloud/helloworld:latest",
+		Image:     "zambon/hello-world-multi:latest",
 		Tty:       true,
 		OpenStdin: true,
 		Cmd:       []string{"/bin/sh"},
@@ -246,7 +246,7 @@ func (s *ProxyTestSuite) setupWebsocketProxy() {
 	handlers := make(map[string]backend.Handler)
 	handlers["/v1/dockersocket/"] = &Handler{}
 	go backend.ConnectToProxy("ws://localhost:4444/v1/connectbackend?token="+signedToken, handlers)
-	s.pullImage("ibuildthecloud/helloworld", "latest")
+	s.pullImage("zambon/hello-world-multi", "latest")
 }
 
 func (s *ProxyTestSuite) SetUpSuite(c *check.C) {

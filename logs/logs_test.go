@@ -49,7 +49,7 @@ func (s *LogsTestSuite) doLogTest(tty bool, prefix string, c *check.C) {
 	createContainerOptions := docker.CreateContainerOptions{
 		Name: "logstest",
 		Config: &docker.Config{
-			Image:     "hello-world",
+			Image:     "zambon/hello-world-multi",
 			OpenStdin: true,
 			Tty:       tty,
 		},
@@ -126,7 +126,7 @@ func (s *LogsTestSuite) setupWebsocketProxy() {
 	handlers := make(map[string]backend.Handler)
 	handlers["/v1/logs/"] = &LogsHandler{}
 	go backend.ConnectToProxy("ws://localhost:3333/v1/connectbackend?token="+signedToken, handlers)
-	s.pullImage("hello-world", "latest")
+	s.pullImage("zambon/hello-world-multi", "latest")
 }
 
 func (s *LogsTestSuite) SetUpSuite(c *check.C) {
